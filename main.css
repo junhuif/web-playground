@@ -51,3 +51,8 @@ footer {
   bottom: 0;
   left: 0;
 }
+
+p {
+  font-size: 28px;
+  line-height: 1.2;
+}
