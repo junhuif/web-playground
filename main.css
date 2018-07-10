@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+}
+
+header {
+  height: 80px;
+  background-color: lightgreen;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+main {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 400px;
+  height: calc(100vh - 80px);
+  margin-top: 80px;
+  margin-bottom: 400px;
+  display: flex;
+}
+
+main > nav {
+  width: 250px;
+  background-color: antiquewhite;
+}
+
+nav > div {
+  position: fixed;
+  width: 250px;
+}
+
+main > section {
+  flex: 1;
+  width: calc(100% - 250px);
+  background-color: lightpink;
+}
+
+footer {
+  height: 400px;
+  width: 100%;
+  background-color: lightcoral;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
