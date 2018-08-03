@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Layout Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="mobile.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div>
+            <nav>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+            </nav>
+            <header>
+                <button id="menu">
+                    Menu
+                </button>
+                Header
+            </header>
+            <main>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+            </main>
+            <footer>
+                <h3>Footer</h3>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+    <script>
+        const toggleMenu = function () {
+            if (document.body.className == "") {
+                document.body.className = "open-menu"
+            } else {
+                document.body.className = ""
+            }
+        }
+
+        document.getElementById("menu").addEventListener("click", toggleMenu)
+    </script>
+</body>
+
+</html>

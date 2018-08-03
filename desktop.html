@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Layout Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="desktop.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <div>
+            <nav>
+                <h2>Navigation</h2>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+            </nav>
+            <header>
+                Header
+            </header>
+            <main>
+                <h2>Main</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto voluptatem dignissimos sint consequuntur voluptate
+                    quod, sunt debitis explicabo veniam suscipit aperiam adipisci, incidunt hic numquam voluptas, temporibus
+                    porro libero?
+                </p>
+            </main>
+            <footer>
+                <h3>Footer</h3>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+                <ul>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                    <li>Link</li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+    <script>
+        const headerHeight = 80;
+        const bottomHeight = 400;
+        const navHeight = 240;
+
+        const nav = document.getElementsByTagName("nav")[0]
+
+        function scrollNav() {
+            const mainHeight = document.getElementsByTagName("main")[0].scrollHeight;
+            console.log("scrolling", mainHeight)
+
+            const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            // console.log(scrollTop, (mainHeight + headerHeight + footerHeight) - (scrollTop + window.screen.height), scrollTop + window.screen.height - headerHeight >= mainHeight);
+
+            const offset = scrollTop + window.screen.height - headerHeight - mainHeight
+            if (offset > 0) {
+                nav.className = "scrolled"
+                // console.log("reposition", offset)
+                // nav.style.top = "unset"
+                // nav.style.bottom = offset + "px"
+            } else {
+                nav.className = ""
+                // nav.style.top = "80px"
+                // nav.style.bottom = "unset"
+            }
+        }
+
+        window.addEventListener("scroll", scrollNav)
+    </script>
+</body>
+
+</html>
