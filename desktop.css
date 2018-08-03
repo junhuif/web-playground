@@ -41,12 +41,20 @@ main {
   background: wheat;
 
   margin-top: 80px;
-  margin-bottom: 400px;
   margin-left: 240px;
 }
 
-footer {
+.reinsurance {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: slategray;
+
+  height: 160px;
   position: relative;
+  width: 100%;
+
+  margin-bottom: 400px;
 }
 
 .footer {
@@ -60,16 +68,4 @@ footer {
   bottom: 0;
   left: 0;
   z-index: -1;
-}
-
-.reinsurance {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: slategray;
-
-  height: 160px;
-  position: relative;
-  left: -240px;
-  width: calc(100% + 240px);
 }
