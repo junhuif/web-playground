@@ -38,7 +38,6 @@ header {
 }
 
 main {
-  padding: 0 12px;
   background: wheat;
 
   margin-top: 80px;
@@ -47,8 +46,11 @@ main {
 }
 
 footer {
+  position: relative;
+}
+
+.footer {
   background: lightcoral;
-  padding: 12px;
   box-sizing: border-box;
 
   width: 100%;
@@ -56,5 +58,18 @@ footer {
 
   position: fixed;
   bottom: 0;
+  left: 0;
   z-index: -1;
+}
+
+.reinsurance {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: slategray;
+
+  height: 160px;
+  position: relative;
+  left: -240px;
+  width: calc(100% + 240px);
 }
