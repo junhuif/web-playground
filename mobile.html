@@ -11,64 +11,65 @@
 </head>
 
 <body>
-    <div id="root">
-        <div>
-            <nav>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                </ul>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                </ul>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                </ul>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                </ul>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                </ul>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                </ul>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                </ul>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                </ul>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                    <li>Link</li>
-                </ul>
-            </nav>
+    <div id="container">
+        <nav>
+            Navigation
+            <ul>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+            </ul>
+            <ul>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+            </ul>
+            <ul>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+            </ul>
+            <ul>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+            </ul>
+            <ul>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+            </ul>
+            <ul>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+            </ul>
+            <ul>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+            </ul>
+            <ul>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+            </ul>
+            <ul>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+                <li>Link</li>
+            </ul>
+        </nav>
+        <div class="content-wrapper">
             <header>
                 <button id="menu">
                     Menu
@@ -103,7 +104,7 @@
                 </p>
             </main>
             <footer>
-                <h3>Footer</h3>
+                Footer
                 <ul>
                     <li>Link</li>
                     <li>Link</li>
@@ -124,18 +125,19 @@
                 </ul>
             </footer>
         </div>
-    </div>
-    <script>
-        const toggleMenu = function () {
-            if (document.body.className == "") {
-                document.body.className = "open-menu"
-            } else {
-                document.body.className = ""
-            }
-        }
+        <script>
+            const container = document.getElementById("container");
 
-        document.getElementById("menu").addEventListener("click", toggleMenu)
-    </script>
+            const toggleMenu = function () {
+                if (container.className == "") {
+                    container.className = "open-menu"
+                } else {
+                    container.className = ""
+                }
+            }
+
+            document.getElementById("menu").addEventListener("click", toggleMenu)
+        </script>
 </body>
 
 </html>
