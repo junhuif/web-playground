@@ -22,6 +22,7 @@ nav {
   background: goldenrod;
 
   width: 240px;
+  height: 100vh;
 
   position: fixed;
   top: 80px;
@@ -42,6 +43,7 @@ main {
 
   margin-top: 80px;
   margin-left: 240px;
+  min-height: calc(100vh - 80px);
 }
 
 .reinsurance {
