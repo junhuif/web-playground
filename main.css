@@ -9,34 +9,32 @@ body {
 .wrapper {
   position: absolute;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  width: 100vw;
-
-  height: calc(100% - 0px);
-  overflow: hidden;
 }
 
 header {
+  /* Makes sure the header is always in the front of the main content */
   position: relative;
-  height: 50px;
-
-  background: green;
-  width: 100%;
   z-index: 1;
+
+  height: 50px;
+  background: green;
 }
 
 main {
-  position: absolute;
+  /* paddingTop matches the height of header */
   padding-top: 50px;
+
+  position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
 
-  overflow: auto;
   -webkit-overflow-scrolling: touch;
-
-  height: 100%;
+  overflow-y: auto;
 
   background: #eee;
 }
