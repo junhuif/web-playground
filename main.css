@@ -1,3 +1,52 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+
+  height: calc(100% - 0px);
+  overflow: hidden;
+}
+
+header {
+  position: relative;
+  height: 50px;
+
+  background: green;
+  width: 100%;
+  z-index: 1;
+}
+
+main {
+  position: absolute;
+  padding-top: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  height: 100%;
+
+  background: #eee;
+}
+
+footer {
+  background: orchid;
+  min-height: 100px;
+}
+
+main > p {
+  font-size: 2em;
+  line-height: 1.5;
+}
