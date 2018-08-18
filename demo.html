@@ -85,12 +85,19 @@
 
         /* Touch the main content area close the Navigation */
 
-        mainContentArea.addEventListener("touchstart", function () {
+        mainContentArea.addEventListener("touchstart", function (event) {
             if (wrapper.classList.contains("menuIsOpen")) {
+                // Prevent the origin bounce effect
+                // https://stackoverflow.com/a/7771215
+                event.preventDefault();
+
                 wrapper.classList.remove("menuIsOpen");
             }
-        })
+        });
     </script>
+
+    <!-- Optional, prevent the body layer bounce -->
+    <script src="./script/iNoBounce/inobounce.min.js"></script>
 </body>
 
 </html>
