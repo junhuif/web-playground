@@ -13,6 +13,8 @@
     <div class="wrapper">
         <nav>
             Sidebar navigation (sticky)
+            <br />
+            <button id="content-overlay-trigger">Toogle the content-overlay</button>
             <br /> Menu Item
             <br /> Menu Item
             <br /> Menu Item
@@ -61,6 +63,7 @@
                 Footer Bottom
             </div>
         </footer>
+        <div class="content-overlay"></div>
 
         <script>
             // Makes the sidebar nav sticky.
@@ -87,6 +90,17 @@
                 }
             }
 
+            // content-overlay trigger demo
+            const contentOverlayTigger = document.querySelector("#content-overlay-trigger");
+            const contentOverlay = document.querySelector(".content-overlay");
+
+            contentOverlayTigger.addEventListener("click", function () {
+                if (!contentOverlay.classList.contains("open")) {
+                    contentOverlay.classList.add("open");
+                } else {
+                    contentOverlay.classList.remove("open");
+                }
+            })
             ///////////////////////////////
             // Helpers
 

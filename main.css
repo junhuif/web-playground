@@ -4,6 +4,7 @@
  * 1. sidebar nav is sticky
  * 2. header is fixed in the top
  * 3. footer has the "uncover the black bit by scrolling up"
+ * 4. content-overlay for covering the main and footer only
  */
 
 .wrapper {
@@ -22,6 +23,12 @@ nav {
 
   width: 240px; /* fixed width, this matches the main's margin-left */
   height: 100vh; /* flexible height that rely on the viewpoint */
+
+  /* 
+   * a large enough vaule that makes sure the nav won't be covered
+   * by the content-overlay
+   */
+  z-index: 1;
 }
 
 /* header always fixed in top */
@@ -39,6 +46,12 @@ header {
    *   3. the main's min-height
    */
   height: 80px;
+
+  /* 
+   * a large enough vaule that makes sure the header won't be covered
+   * by the content-overlay
+   */
+  z-index: 1;
 }
 
 /* main */
@@ -79,6 +92,33 @@ main {
 
   /* Fixed height, this matches the footer-top's margin-bottom */
   height: 400px;
+}
+
+/* 
+ * content-overlay is an overlay layer for covering the main and
+ * footer. The nav and header cover above the content-overlay.
+ */
+
+.content-overlay {
+  background: black;
+
+  /* Layer that covers the whole viewpoint */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Invisible by default  */
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Display the content-overlay */
+
+.content-overlay.open {
+  opacity: 0.8;
+  pointer-events: all;
 }
 
 /* Presentation Setup */
