@@ -1,86 +1,107 @@
-body {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
+/* Utilites */
 
-p {
-  font-size: 28px;
-  line-height: 1.5;
-  margin: 0;
-  padding: 1em 0;
-}
+/* 
+The absolute-layer is useful to create an inner scrollable layer, I
+learned from:
+https://medium.com/@im_rahul/safari-and-position-fixed-978122be5f29 
+*/
 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-ul > li {
-  padding: 1em 0;
-}
-
-/* Main */
-
-#container {
-  position: relative;
-}
-
-#container.open-menu .content-wrapper {
-  transform: translate3d(240px, 0, 0);
-}
-
-#container.open-menu .main-content-wrapper {
-  overflow: hidden;
-}
-
-.content-wrapper {
-  margin: 0;
-  padding: 0;
-  border: none;
-
+.absolute-layer {
   position: absolute;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+}
 
+.scrollable-y {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* Toggle Menu */
+
+/* Both .wrapper and .sub-wrapper is an absolute layer */
+
+.wrapper.menuIsOpen {
+  overflow: hidden;
+}
+
+.sub-wrapper {
   transition: transform 0.3s ease-out;
 }
 
+.wrapper.menuIsOpen > .sub-wrapper {
+  transform: translateX(240px);
+}
+
+/* Left sidebar - Navigation */
+
+/* 
+Notes:
+1. Left sidebar sits in the left side of the Main content area,
+it's invisible by default. When the menu is open, push the
+sub-wrapper right to let the Nav visible in the viewpoint.
+2. Nav's inner wrapper should be an abosolute layer and scrollable.
+*/
+
 nav {
-  width: 240px;
-  height: 100vh;
-  overflow: auto;
-
-  background: goldenrod;
-}
-
-header {
-  position: relative;
-  top: 0;
-
-  height: 50px;
-  width: 100%;
-
-  background: lightgreen;
-  z-index: 10;
-}
-
-.main-content-wrapper {
-  padding-top: 50px; /* height of header */
+  width: 240px; /* Fixed width */
 
   position: absolute;
   top: 0;
-  overflow: auto;
-  height: 100%;
+  bottom: 0;
+  left: -240px; /* Left matches the fixed width */
 }
 
-main {
-  background: ghostwhite;
+/* Main content area - Header, Main and Footer */
+
+/* 
+Notes: 
+1. Header sticks in the top of the Main content area.
+2. Footer sits inside the .main-content-area so that it's in the end of the content flow.
+3. Main content area is an scrollable absolute layer.
+*/
+
+header {
+  /* Makes sure the header is always in the front of the main content */
+  position: relative;
+  z-index: 1;
+
+  height: 50px; /* Fixed height */
+}
+
+.main-content-area {
+  /* PaddingTop matches the height of header */
+  padding-top: 50px;
+}
+
+/* Presentation Setup */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  font-size: 2em;
+  line-height: 1.5;
+}
+
+nav {
+  background: gold;
+}
+
+header {
+  background: green;
 }
 
 footer {
-  background: lightcoral;
+  background: orchid;
+
+  /* Arbitrary height for presentation */
+  height: 100px;
 }
