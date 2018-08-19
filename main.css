@@ -57,6 +57,12 @@ header {
 /* main */
 
 main {
+  /* 
+   * The HTML5 main element is not supported by Internet Explorer,
+   * refer: https://stackoverflow.com/a/35820454
+   */
+  display: block;
+
   margin-top: 80px; /* fixed margin-top matches the header height */
   margin-left: 240px; /* fixed margin-left matches the nav width */
 
