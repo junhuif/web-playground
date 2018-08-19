@@ -64,71 +64,71 @@
             </div>
         </footer>
         <div class="content-overlay"></div>
+    </div>
 
-        <script>
-            // Makes the sidebar nav sticky.
-            window.addEventListener("scroll", stickySidebarNavOnScrll)
+    <script>
+        // Makes the sidebar nav sticky.
+        window.addEventListener("scroll", stickySidebarNavOnScrll)
 
-            const nav = document.querySelector("nav");
+        var nav = document.querySelector("nav");
 
-            const mainHeight = document.querySelector("main").offsetHeight;
-            const headerHeight = document.querySelector("header").offsetHeight;
-            const footerTopHeight = document.querySelector(".footer-top").offsetHeight;
+        var mainHeight = document.querySelector("main").offsetHeight;
+        var headerHeight = document.querySelector("header").offsetHeight;
+        var footerTopHeight = document.querySelector(".footer-top").offsetHeight;
 
-            function stickySidebarNavOnScrll() {
-                const { height: screenHeight } = screenSize();
-                const { y: scrollTop } = pageOffset();
+        function stickySidebarNavOnScrll() {
+            var screenHeight = screenSize()[1];
+            var scrollTop = pageOffset()[1];
 
-                const offset = scrollTop + screenHeight - headerHeight - mainHeight
-                console.log(screenHeight, mainHeight, scrollTop, offset)
+            var offset = scrollTop + screenHeight - headerHeight - mainHeight
 
-                if (offset > 0) {
-                    nav.style.top = `calc(100% - ${nav.offsetHeight}px - ${footerTopHeight}px)`
-                    nav.style.position = `absolute`
-                } else {
-                    nav.style = ""
-                }
+            if (offset > 0) {
+                nav.style.top = "calc(100% - " + nav.offsetHeight + "px - " + footerTopHeight + "px)"
+                nav.style.position = "absolute"
+            } else {
+                nav.style = ""
             }
+        }
 
-            // content-overlay trigger demo
-            const contentOverlayTigger = document.querySelector("#content-overlay-trigger");
-            const contentOverlay = document.querySelector(".content-overlay");
+        // content-overlay trigger demo
+        var contentOverlayTigger = document.querySelector("#content-overlay-trigger");
+        var contentOverlay = document.querySelector(".content-overlay");
 
-            contentOverlayTigger.addEventListener("click", function () {
-                if (!contentOverlay.classList.contains("open")) {
-                    contentOverlay.classList.add("open");
-                } else {
-                    contentOverlay.classList.remove("open");
-                }
-            })
-            ///////////////////////////////
-            // Helpers
-
-            // Cross-browser method for detecting the scrollTop of the
-            // browser window:
-            // https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY#Notes
-            function pageOffset() {
-                const supportPageOffset = window.pageXOffset !== undefined;
-                const isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
-
-                const x = supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
-                const y = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
-
-                return {
-                    x, y
-                }
+        contentOverlayTigger.addEventListener("click", function () {
+            if (!contentOverlay.classList.contains("open")) {
+                contentOverlay.classList.add("open");
+            } else {
+                contentOverlay.classList.remove("open");
             }
+        })
+        ///////////////////////////////
+        // Helpers
 
-            // Cross-browser screen width/height polling:
-            // https://gist.github.com/jhafner/4119231
-            function screenSize() {
-                const w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0], x = w.innerWidth || e.clientWidth || g.clientWidth, y = w.innerHeight || e.clientHeight || g.clientHeight;
+        // Cross-browser method for detecting the scrollTop of the
+        // browser window:
+        // https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY#Notes
+        function pageOffset() {
+            var supportPageOffset = window.pageXOffset !== undefined;
+            var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
 
-                return {
-                    width: x, height: y
-                }
-            }
-        </script>
+            var x = supportPageOffset ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
+            var y = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+
+            return [
+                x, y
+            ]
+        }
+
+        // Cross-browser screen width/height polling:
+        // https://gist.github.com/jhafner/4119231
+        function screenSize() {
+            var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0], width = w.innerWidth || e.clientWidth || g.clientWidth, height = w.innerHeight || e.clientHeight || g.clientHeight;
+
+            return [
+                width, height
+            ]
+        }
+    </script>
 </body>
 
 </html>
