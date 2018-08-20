@@ -42,7 +42,8 @@ nav {
   top: 80px; /* top matches the fixed height of the header */
 
   width: 240px; /* fixed width, this matches the main's margin-left */
-  height: 100vh; /* flexible height that rely on the viewpoint */
+  /* flexible height that rely on the viewpoint and the header height */
+  min-height: calc(100vh - 80px);
   overflow: hidden;
 
   /* 
@@ -63,8 +64,9 @@ header {
   /* 
    * fixed height, this matches: 
    *   1. the nav's top
-   *   2. the main's margin-top
-   *   3. the main's min-height
+   *   2. the nav's min-height
+   *   3. the main's margin-top
+   *   4. the main's min-height
    */
   height: 80px;
 
