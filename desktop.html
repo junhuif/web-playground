@@ -14,7 +14,7 @@
         <nav>
             Sidebar navigation (sticky)
             <br />
-            <button id="content-overlay-trigger">Toogle the content-overlay</button>
+            <button id="page-content-overlay-trigger">Toogle the page-content-overlay</button>
             <br /> Menu Item
             <br /> Menu Item
             <br /> Menu Item
@@ -63,7 +63,7 @@
                 Footer Bottom
             </div>
         </footer>
-        <div class="content-overlay"></div>
+        <div class="page-content-overlay"></div>
     </div>
 
     <script>
@@ -82,17 +82,25 @@
 
             var offset = scrollTop + screenHeight - headerHeight - mainHeight
 
+            // Use element's style property to pass the CSP style-src policy.
+            //
+            // > However, styles properties that are set directly on the element's
+            // style property will not be blocked, allowing users to safely
+            // manipulate styles via Javascript:
+            // 
+            // Read more: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src#Violation_cases
             if (offset > 0) {
                 nav.style.top = "calc(100% - " + nav.offsetHeight + "px - " + footerTopHeight + "px)"
                 nav.style.position = "absolute"
             } else {
-                nav.style = ""
+                nav.style.top = ""
+                nav.style.position = ""
             }
         }
 
-        // content-overlay trigger demo
-        var contentOverlayTigger = document.querySelector("#content-overlay-trigger");
-        var contentOverlay = document.querySelector(".content-overlay");
+        // page-content-overlay trigger demo
+        var contentOverlayTigger = document.querySelector("#page-content-overlay-trigger");
+        var contentOverlay = document.querySelector(".page-content-overlay");
 
         contentOverlayTigger.addEventListener("click", function () {
             if (!contentOverlay.classList.contains("open")) {
