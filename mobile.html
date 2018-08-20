@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mobile Layout Prototype</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="mobile.css" />
 </head>
 
 <body>
@@ -39,7 +39,7 @@
                 </button>
                 Header
             </header>
-            <div class="main-content-area absolute-layer scrollable-y">
+            <div class="page-content-wrapper absolute-layer scrollable-y">
                 <main>
                     start
                     <br />
@@ -71,7 +71,7 @@
     <script>
         const menuButton = document.querySelector("#menuButton");
         const wrapper = document.querySelector(".wrapper");
-        const mainContentArea = document.querySelector(".main-content-area");
+        const pageContent = document.querySelector(".page-content-wrapper");
 
         /* Toggle Menu */
 
@@ -83,11 +83,11 @@
             }
         })
 
-        /* Touch the main content area close the Navigation */
+        /* Touch the page content close the menu */
 
-        mainContentArea.addEventListener("touchstart", function (event) {
+        pageContent.addEventListener("touchstart", function (event) {
             if (wrapper.classList.contains("menuIsOpen")) {
-                // Prevent the origin bounce effect
+                // Prevent the origin bounce effect, read more:
                 // https://stackoverflow.com/a/7771215
                 event.preventDefault();
 
@@ -95,9 +95,6 @@
             }
         });
     </script>
-
-    <!-- Optional, prevent the body layer bounce -->
-    <script src="./script/iNoBounce/inobounce.min.js"></script>
 </body>
 
 </html>
