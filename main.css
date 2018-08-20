@@ -1,10 +1,31 @@
-/* Main */
-
 /* 
- * 1. sidebar nav is sticky
- * 2. header is fixed in the top
- * 3. footer has the "uncover the black bit by scrolling up"
- * 4. content-overlay for covering the main and footer only
+ * Requirement:
+ *   1. (left) sidebar nav is sticky
+ *   2. header is fixed in the top
+ *   3. footer has the "uncover the black bit by scrolling up"
+ *   4. page-content-overlay for covering the main and footer
+ *
+ * The HTML elements' hierarchy:
+ * * root
+ *   * .wrapper (relative)
+ *     * nav (fixed, z-index: 1)
+ *     * header (fixed, z-index: 1)
+ *     * main
+ *     * footer
+ *       * .footer-top
+ *       * .footer-bottom (fixed, z-index: -1)
+ *     * .page-content-overlay (fixed: z-index: auto)
+ *
+ * And the stacking context hierarchy:
+ * * root stacking context  
+ *   * nav (fixed, z-index: 1)
+ *   * header (fixed, z-index: 1)
+ *   * .page-content-overlay (fixed, z-index: auto)
+ *   * main, footer, .footer-top
+ *   * .footer-bottom (fixed, z-index: -1)
+ *  
+ * Read more about stacking context:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
  */
 
 .wrapper {
@@ -12,9 +33,8 @@
 }
 
 /* 
- * sidebar nav is fixed by default, when scrolling to the bottom, it
- * turns to absolute for sticking above the footer (this done by
- * Javascript).
+ * nav is fixed by default, when scrolling to the bottom, it turns to
+ * absolute for sticking above the footer (this done by Javascript).
  */
 
 nav {
@@ -23,10 +43,11 @@ nav {
 
   width: 240px; /* fixed width, this matches the main's margin-left */
   height: 100vh; /* flexible height that rely on the viewpoint */
+  overflow: hidden;
 
   /* 
    * a large enough vaule that makes sure the nav won't be covered
-   * by the content-overlay
+   * by the page-content-overlay
    */
   z-index: 1;
 }
@@ -49,7 +70,7 @@ header {
 
   /* 
    * a large enough vaule that makes sure the header won't be covered
-   * by the content-overlay
+   * by the page-content-overlay
    */
   z-index: 1;
 }
@@ -58,15 +79,17 @@ header {
 
 main {
   /* 
+   * This makes the main working as expected in IE11.
+   * 
    * The HTML5 main element is not supported by Internet Explorer,
-   * refer: https://stackoverflow.com/a/35820454
+   * read more: https://stackoverflow.com/a/35820454
    */
   display: block;
 
   margin-top: 80px; /* fixed margin-top matches the header height */
   margin-left: 240px; /* fixed margin-left matches the nav width */
 
-  /* flexible height that rely on the VIEWPOINT_HEIGHT - HEADER_HEIGHT */
+  /* flexible height that rely on the viewpoint */
   min-height: calc(100vh - 80px);
 }
 
@@ -78,7 +101,7 @@ main {
 
   /* 
    * Fixed height, this is used by the scroll event to calculate the
-   * sidebar nav's top
+   * nav's position.
    */
   height: 160px;
 }
@@ -92,7 +115,7 @@ main {
 
   /* 
    * A low enough z-index that make the footer-bottom always be
-   * covered by the footer-top and main.
+   * covered by the footer-top, main and page-content-overlay.
    */
   z-index: -1;
 
@@ -101,13 +124,12 @@ main {
 }
 
 /* 
- * content-overlay is an overlay layer for covering the main and
- * footer. The nav and header cover above the content-overlay.
+ * page-content-overlay is an overlay layer for covering the main and
+ * footer. The nav and header should sits above the
+ * page-content-overlay.
  */
 
-.content-overlay {
-  background: black;
-
+.page-content-overlay {
   /* Layer that covers the whole viewpoint */
   position: fixed;
   top: 0;
@@ -115,15 +137,20 @@ main {
   bottom: 0;
   left: 0;
 
-  /* Invisible by default  */
+  /* Invisible by default */
   opacity: 0;
   pointer-events: none;
+
+  background: black;
+  transition: opacity 0.3s linear;
 }
 
-/* Display the content-overlay */
+/* Display the page-content-overlay */
 
-.content-overlay.open {
+.page-content-overlay.open {
   opacity: 0.8;
+
+  /* Intercepting all pointer/mouse events */
   pointer-events: all;
 }
 
