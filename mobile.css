@@ -103,8 +103,8 @@ header {
   position: relative;
 
   /* 
-   * A large enough vaule that makes sure the header always in the
-   * front of the cotent
+   * A large enough value that makes sure the header always in the
+   * front of the content
    */
   z-index: 1;
 
