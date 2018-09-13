@@ -8,10 +8,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
+    <!-- PC向け -->
+    <script>
+        var poplink3 = [
+            {
+                uid: "1005041f00e0fe67d764fed9a81afd3dq",
+                target: ".input",
+                suggestCount: 5,
+                searchCount: 5,
+                useGATracking: true,
+                deviceType: 'pc011'
+            },
+            // {
+            //     uid: "1005041f00e0fe67d764fed9a81afd3dq",
+            //     target: "#q1",
+            //     suggestCount: 5,
+            //     searchCount: 10,
+            //     useGATracking: true,
+            //     deviceType: 'sphs'
+            // },
+        ];
+        // var poplink3 = { uid: "1005041f00e0fe67d764fed9a81afd3dq", deviceType: "sphs" };
+
+        function initPoplink() {
+            var s = document.createElement("script");
+            s.charset = "utf-8";
+            s.src = "//poplink-f.probo.biz/pl3/poplink3.js";
+            document.getElementsByTagName("head")[0].appendChild(s);
+        }
+        initPoplink()
+
+        // How to restart the poplink
+        // 1. update the window.poplink3 object
+        // 2. call poplink3_api.restart()
+
+        // Notes:
+        // One target (only get the first element when target is a class) no
+    </script>
 </head>
 
 <body>
     <h1>Poplink Prototype</h1>
+    <p>
+        <label for="search_query">Search Query
+            <input type="text" id="search_query" />
+        </label>
+    </p>
+    <p>
+        <label for="q1">Input 1
+            <input type="text" id="q1" />
+        </label>
+    </p>
+    <p>
+        <label for="q2">Input 2
+            <input type="text" id="q2" class="input" />
+        </label>
+    </p>
+    <p>
+        <label for="q2">Input 3
+            <input type="text" id="q3" class="input" />
+        </label>
+    </p>
 </body>
 
 </html>
