@@ -6,26 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Layout Prototype</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.css">
+
+    <style>
+        .container {
+            height: 300px;
+        }
+
+        .slide {
+            width: 320px;
+            margin-right: 20px;
+            background-color: gold;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-    </header>
-    <main>
-        <nav>
-            <div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet cumque officiis atque illum doloremque alias
-                    eum aliquam iste sit perferendis, assumenda cum provident sequi, pariatur illo nam quam explicabo? Obcaecati!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet cumque officiis atque illum doloremque alias
-                    eum aliquam iste sit perferendis, assumenda cum provident sequi, pariatur illo nam quam explicabo? Obcaecati!</p>
-            </div>
-        </nav>
-        <section></section>
-    </main>
-    <footer>
-    </footer>
+    <!-- Slider main container -->
+    <div class="swiper-container container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide slide">Slide 1</div>
+            <div class="swiper-slide slide">Slide 2</div>
+            <div class="swiper-slide slide">Slide 3</div>
+            ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.js"></script>
+
+    <script>
+        window.onload = function () {
+            var mySwiper = new Swiper('.swiper-container', {
+                speed: 200,
+                slidesPerView: "auto",
+
+                // Optional parameters
+                direction: 'horizontal',
+                loop: false,
+
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                // And if we need scrollbar
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                },
+            })
+        };
+    </script>
 </body>
 
 </html>
