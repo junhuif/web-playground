@@ -1,3 +1,5 @@
+/* Presentation */
+
 body {
   margin: 0;
   padding: 0;
@@ -21,6 +23,8 @@ footer {
   background: red;
 }
 
+/* Utility */
+
 .absolute-layer {
   position: absolute;
   top: 0;
@@ -34,7 +38,7 @@ footer {
   overflow-y: auto;
 }
 
-/* Fixed */
+/* Main */
 
 header {
   position: fixed;
@@ -58,6 +62,8 @@ nav {
   position: relative;
   left: 0;
 }
+
+/* For menu animation */
 
 nav,
 header,
