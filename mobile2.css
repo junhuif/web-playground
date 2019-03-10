@@ -1,0 +1,90 @@
+/* Presentation */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  width: 240px;
+  background: yellow;
+}
+
+header {
+  height: 50px;
+  background: green;
+}
+
+main {
+  background: wheat;
+}
+
+footer {
+  background: red;
+}
+
+/* Utility */
+
+.absolute-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.scrollable-y {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* Main */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+main {
+  margin-top: 50px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -240px;
+}
+
+#wrapper {
+  position: relative;
+  left: 0;
+}
+
+/* For menu animation */
+
+nav,
+header,
+#wrapper {
+  transition: left 0.3s ease-out;
+}
+
+body.menuIsOpen #wrapper {
+  position: relative;
+  left: 240px;
+}
+
+body.menuIsOpen nav {
+  left: 0;
+}
+
+body.menuIsOpen header {
+  left: 240px;
+}
+
+body.menuIsOpen {
+  overflow: hidden;
+  height: 100%;
+}

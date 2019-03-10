@@ -1,0 +1,150 @@
+/* Requirements:
+ * 1. Header is fixed in the top
+ * 2. Header has a menu button for opening/closing the left sidebar
+ * nav menu
+ * 3. Tap on the menu button, the left sidebar nav appeared by pushes
+ * the content to the right
+ * 4. Tap on the menu button again or the content will pushing
+ * the nav and content back to the left
+ *
+ * The HTML elements' hierarchy:
+ * * root
+ *   * .wrapper (absolute, z-index: auto)
+ *     * .sub-wrapper (absolute, z-index: auto)
+ *       * nav (absolute, z-index: auto)
+ *         * .nav-inner-wrapper (absolute, z-index: auto)
+ *       * header (relative, z-index: 1)
+ *         * .page-content-wrapper
+ *           * main
+ *           * footer
+ *
+ * And the stacking context hierarchy:
+ * * root stacking context  
+ *   * header (relative, z-index: 1)
+ *   * nav
+ *   * .page-content-wrapper (main, footer)
+ * 
+ * Read more about stacking context:
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+ */
+
+/* Utilites */
+
+/* 
+ * The absolute-layer is useful to create an inner scrollable layer,
+ * read more from:
+ * https://medium.com/@im_rahul/safari-and-position-fixed-978122be5f29
+ */
+
+.absolute-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.scrollable-y {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+/* Toggle Menu */
+
+/* Both .wrapper and .sub-wrapper is an absolute layer */
+
+.wrapper.menuIsOpen {
+  overflow: hidden;
+}
+
+.sub-wrapper {
+  transition: transform 0.3s ease-out;
+}
+
+.wrapper.menuIsOpen > .sub-wrapper {
+  transform: translateX(240px);
+}
+
+/* Left sidebar - Nav */
+
+/* 
+ * Notes:
+ * 1. Left sidebar sits in the left side of the content, it's
+ * invisible by default. When the menu is open, it pushes the
+ * sub-wrapper right to let the nav visible in the viewpoint.
+ * 2. nav's inner wrapper should be an abosolute layer and
+ * scrollable.
+ */
+
+nav {
+  width: 240px; /* Fixed width */
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -240px; /* Left matches the fixed width */
+}
+
+/* 
+ * Content - Header, .page-content-wrapper 
+ * Page content - Main, Footer
+ */
+
+/* 
+Notes: 
+1. Header sticks in the top of the content.
+2. Footer sits inside the .page-content-wrapper so that it's in the
+end of the content flow.
+3. The content which wrapped by .sub-wrapper is an scrollable
+absolute layer.
+*/
+
+header {
+  position: relative;
+
+  /* 
+   * A large enough value that makes sure the header always in the
+   * front of the content
+   */
+  z-index: 1;
+
+  /* 
+   * Fixed height, this matches the page-content-wrapper's padding-top
+   */
+  height: 50px;
+}
+
+.page-content-wrapper {
+  /* PaddingTop matches the height of header */
+  padding-top: 50px;
+}
+
+/* Presentation Setup */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  font-size: 2em;
+  line-height: 1.5;
+}
+
+nav {
+  background: gold;
+}
+
+header {
+  background: green;
+}
+
+footer {
+  background: orchid;
+
+  /* Arbitrary height for presentation */
+  height: 100px;
+}
